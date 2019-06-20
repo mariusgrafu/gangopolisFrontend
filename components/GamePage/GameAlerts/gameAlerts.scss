@@ -1,0 +1,41 @@
+@import '../../variables.scss';
+
+.game-alerts-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  pointer-events: all;
+  width: 360px;
+
+  .game-alerts-top {
+    display: flex;
+    align-items: center;
+
+    .game-alerts-icon {
+      font-size: 22px;
+      margin-right: 20px;
+    }
+
+    .game-alerts-clear {
+      font-size: 18px;
+      font-weight: $boldFontWeight;
+      opacity: .8;
+      margin-top: -3px;
+      cursor: pointer;
+
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+
+  .game-alerts {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 300px;
+    padding: 5px;
+    box-sizing: border-box;
+    padding-left: 30px;
+  }
+}

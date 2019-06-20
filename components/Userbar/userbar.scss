@@ -1,0 +1,111 @@
+@import '../variables.scss';
+
+.userbar-container {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    min-height: 650px;
+
+    .user-avatar {
+        position: relative;
+        width: 64px;
+        height: 64px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 100%;
+        border: 3px solid $avatarBorder;
+        margin-bottom: 50px;
+        cursor: pointer;
+        transition: all .2s;
+
+        &.in-room {
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($secondaryColor, .8);
+                z-index: -1;
+                border-radius: 100%;
+                -webkit-animation-name: inRoomPulse;
+                -moz-animation-name: inRoomPulse;
+                -o-animation-name: inRoomPulse;
+                animation-name: inRoomPulse;
+                -webkit-animation-iteration-count: infinite;
+                -moz-animation-iteration-count: infinite;
+                -o-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                animation-duration: 1.5s;
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 0 15px rgba($avatarBorder, .8);
+        }
+    }
+
+    .user-settings {
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+        box-sizing: border-box;
+
+        svg {
+            width: 40px;
+            transition: all .2s;
+
+            .gear-outline {
+                position: relative;
+                z-index: 2;
+                fill: $white;
+                transition: all .2s;
+            }
+
+            .gear-inside {
+                fill: transparent;
+                transition: all .2s;
+            }
+        }
+
+        &:hover, &.active {
+
+            svg {
+                transform: rotate(50deg);
+
+                .gear-outline {
+                    fill: lighten($secondaryDarkerColor, 20%);
+                }
+
+                .gear-inside {
+                    fill: rgba($secondaryColor, .3);
+                }
+            }
+        }
+
+        &.active {
+            pointer-events: none;
+
+            svg {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+}
+
+@keyframes inRoomPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}

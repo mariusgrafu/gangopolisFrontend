@@ -1,0 +1,46 @@
+@import '../../../variables.scss';
+
+.play-item-container {
+
+    .navbar-item-icon {
+
+        svg {
+            height: 50px;
+
+            .play-outline {
+                fill: $white;
+                transform-origin: center;
+                transition: all .2s;
+            }
+
+            .play-btn {
+                position: relative;
+                fill: $navbarItemLowOpacityWhite;
+                transform-origin: center;
+                transition: all .2s;
+                z-index: 2;
+            }
+        }
+    }
+
+    &:hover, &.active {
+
+        .navbar-item-icon {
+            filter: drop-shadow(0 0 10px rgba(#C4EC3B, .5));
+    
+            svg {
+    
+                .play-outline {
+                    transform: scale(.5);
+                    opacity: 0;
+                    filter: blur(10px);
+                }
+    
+                .play-btn {
+                    fill: url(#playGradient);
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+}

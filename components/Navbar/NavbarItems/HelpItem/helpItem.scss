@@ -1,0 +1,40 @@
+@import '../../../variables.scss';
+
+.help-item-container {
+
+    .navbar-item-icon {
+
+        svg {
+            height: 50px;
+            fill: $white;
+            transition: all .2s;
+
+            .help-mark {
+                transition: all .2s;
+            }
+
+            .help-dot {
+                transition: all .2s;
+            }
+        }
+    }
+
+    &:hover {
+
+        .navbar-item-icon {
+            filter: drop-shadow(0 0 10px rgba(#00FFF6, .5));
+    
+            svg {
+                transform: scale(1.1);
+
+                .help-mark {
+                    fill: url(#helpGradient);
+                }
+
+                // .help-dot {
+                //     transform: translateY(5px);
+                // }
+            }
+        }
+    }
+}

@@ -1,0 +1,194 @@
+@import '../../variables.scss';
+
+.dice-panel-container {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  pointer-events: all;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: lighten($bgColor, 5%);
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px rgba($secondaryDarkerColor, .15),
+              0 7px 0 lighten($bgColor, 2%), 0 10px 15px 2px rgba(black, .8);
+
+  .move-to-destination-btn {
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: $extraBoldFontWeight;
+    color: $bgDarkerColor;
+    white-space: nowrap;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: $waypointColor;
+    box-shadow: 0 2px 15px rgba($waypointColor, .2);
+    transition: all .2s;
+
+    &:hover {
+      box-shadow: 0 2px 20px rgba($waypointColor, .5);
+    }
+  }
+
+  .end-turn-btn {
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: $extraBoldFontWeight;
+    color: $white;
+    white-space: nowrap;
+    border-radius: 10px;
+    cursor: pointer;
+    background-image: $redGradient;
+    box-shadow: 0 2px 15px rgba($redGradientBottom, .2);
+    transition: all .2s;
+
+    &:hover {
+      box-shadow: 0 2px 20px rgba($redGradientBottom, .5);
+    }
+  }
+
+  .dice-wrap {
+    display: flex;
+    align-items: center;
+
+    .die-container {
+      position: relative;
+      height: 50px;
+      width: 50px;
+      box-sizing: border-box;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba($bgDarkerColor, .8);
+      box-shadow: 0 0 0 2px rgba($secondaryDarkerColor, .2);
+      border-radius: 7px;
+      overflow: hidden;
+
+      .die-value {
+        width: 40px;
+        height: 40px;
+        background-color: $white;
+        color: $bgDarkerColor;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        line-height: 40px;
+        align-items: center;
+        font-size: 20px;
+        font-weight: $extraBoldFontWeight;
+        box-shadow: inset 0px -3px 0px 3px rgba($bgColor, .3);
+        transition: all .2s cubic-bezier(0.09, 0.64, 0.62, 1.21);
+
+        &:not(:only-child) {
+          position: absolute;
+
+          &:first-child {
+            transform: translateY(-100%);
+            margin-top: -10px;
+            z-index: 2;
+          }
+
+          &:nth-child(2){
+            transform: translateY(0);
+            margin-top: 0px;
+          }
+
+          &:nth-child(3) {
+            transform: translateY(100%);
+            margin-top: 10px;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+
+      &:nth-child(2) {
+
+        .die-value {
+          transition: all .2s cubic-bezier(0.09, 0.64, 0.56, 1.34);
+
+          &:not(:only-child) {
+            position: absolute;
+
+            &:first-child {
+              transform: translateY(100%);
+              margin-top: 10px;
+              z-index: 2;
+            }
+
+            &:nth-child(2){
+              transform: translateY(0);
+              margin-top: 0px;
+            }
+
+            &:nth-child(3) {
+              transform: translateY(-100%);
+              margin-top: -10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dice-btn {
+    position: relative;
+    display: flex;
+    margin-left: 15px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-color: $bgDarkerColor;
+    box-shadow: 0 0 0 2px rgba($secondaryDarkerColor, .2);
+    border-radius: 100%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      top: 0px; left: 5px;
+      background-image: $diceBtnGradient;
+      border-radius: 100%;
+      box-shadow: 0 0 8px rgba($diceBtnGradientTop, .5), 0 5px 0 darken($diceBtnGradientBottom, 30%);
+      transition: all .1s cubic-bezier(0.27, 1.15, 1, 2.09), opacity .2s;
+
+    }
+
+    &:hover:after {
+      box-shadow: 0 0 15px rgba($diceBtnGradientTop, .5), 0 5px 0 darken($diceBtnGradientBottom, 30%);
+    }
+
+    &:active:after {
+      top: 3px;
+      box-shadow: 0 0 20px rgba($diceBtnGradientTop, .5), 0 2px 0 darken($diceBtnGradientBottom, 35%);
+    }
+  }
+
+  &.is-rolling, &.disabled {
+
+    .dice-btn {
+      pointer-events: none;
+
+      &:after {
+        opacity: .4;
+        top: 2px;
+        box-shadow: 0 0 0px rgba($diceBtnGradientTop, .5), 0 3px 0 darken($diceBtnGradientBottom, 40%);
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@import '../../../variables.scss';
+
+$playerTranslate : 30px;
+
+.map-players-container {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  //background: rgba(pink, .5);
+
+  .map-player {
+    position: absolute;
+    pointer-events: auto;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    background-size: cover;
+    //border: 2px solid $avatarBorder;
+    transition: all .2s linear;
+
+    .map-player-avatar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      border-radius: 100%;
+      border: 1px solid $bgColor;
+
+      &:after {
+        content : '';
+        top: -4px; left: -4px;
+        position: absolute;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        pointer-events: none;
+        z-index: -1;
+        border-radius: 100%;
+        box-shadow: 0 5px 10px -5px rgba(black, .7);
+      }
+
+      &.is-active:before {
+        content: '';
+        top: 0; left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        background-color: lighten($secondaryColor, 10%);
+        opacity: 0;
+        border-radius: 100%;
+        animation-name: mapActivePulse;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      &.team-gang:after {
+        background-image: $gangGradient;
+      }
+
+      &.team-mafia:after {
+        background-image: $mobGradient;
+      }
+
+      &.team-police:after {
+        background-image: $policeGradient;
+      }
+
+      .map-player-arrow {
+        position: absolute;
+        z-index: 20;
+        top: -8px; left: 50%;
+        transform: translateX(-50%);
+        font-size: 15px;
+        pointer-events: none;
+        text-shadow: 0 0 10px rgba($white, 0), 0 5px 3px $bgColor;
+        transition: all .2s;
+      }
+
+      &:hover {
+
+        .map-player-arrow {
+          top: -10px;
+          text-shadow: 0 0 10px rgba($white, .4), 0 5px 3px $bgColor;
+        }
+      }
+    }
+
+    &:nth-of-type(1) {
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 2;
+    }
+
+    &:nth-of-type(2) {
+      transform: translateX(-50%) translateY(-50%) translateX($playerTranslate) translateY(-$playerTranslate);
+    }
+
+    &:nth-of-type(3) {
+      transform: translateX(-50%) translateY(-50%) translateX($playerTranslate) translateY($playerTranslate);
+    }
+
+    &:nth-of-type(4) {
+      transform: translateX(-50%) translateY(-50%) translateX(-$playerTranslate) translateY($playerTranslate);
+    }
+
+    &:nth-of-type(5) {
+      transform: translateX(-50%) translateY(-50%) translateX(-$playerTranslate) translateY(-$playerTranslate);
+    }
+  }
+}
+
+@keyframes mapActivePulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

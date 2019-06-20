@@ -1,0 +1,141 @@
+@import '../../variables.scss';
+
+.room-page-lock-container {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+
+    .rpl-lock-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: $bgColor;
+        border-radius: 6px;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            background: $greenGradient;
+            top: -3px; left: -3px;
+            width: calc(100% + 6px);
+            height: calc(100% + 6px);
+            border-radius: 7px;
+            transition: all .1s;
+        }
+
+        .rpl-lock-type {
+            font-size: 17px;
+            font-weight: $extraBoldFontWeight;
+            color: $white;
+        }
+
+        i {
+            font-size: 22px;
+            margin-left: 10px;
+            transform: translateY(2px);
+            color: $greenGradientBottom;
+        }
+
+        &.locked {
+            &:after {
+                background: $redGradient;
+            }
+
+            i {
+                color: $redGradientBottom;
+            }
+
+            &:hover {
+    
+                &:after {
+                    box-shadow: 0 0 20px rgba($redGradientBottom, .5);
+                }
+            }
+        }
+
+        &:hover {
+
+            &:after {
+                box-shadow: 0 0 20px rgba($greenGradientBottom, .5);
+            }
+        }
+
+    }
+
+    .rpl-password-wrap {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+
+        .rpl-password-label {
+            font-size: 18px;
+            font-weight: $boldFontWeight;
+            color: $secondaryColor;
+            margin-right: 10px;
+        }
+
+        .rpl-pass-input {
+            position: relative;
+
+            input {
+                width: 400px;
+                padding-right: 50px;
+            }
+
+            i {
+                position: absolute;
+                top: calc(50% + 2px);
+                right: 0;
+                transform: translateY(-50%);
+                padding: 10px;
+                font-size: 13px;
+                box-sizing: border-box;
+                cursor: pointer;
+                color: $secondaryColor;
+                opacity: .5;
+                transition: all .2s;
+
+                &:hover {
+                    opacity: .8;
+                }
+
+                &.active {
+                    opacity: 1;
+                    color: $white;
+                }
+            }
+        }
+
+        .rpl-reload-password {
+            margin-left: 10px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: all .1s;
+            color: $white;
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -ms-transform-origin: center;
+            -o-transform-origin: center;
+            transform-origin: center;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &.disabled {
+                color: $secondaryColor;
+                opacity: .6;
+                pointer-events: none;
+            }
+        }
+
+
+        .btn {
+            margin-left: 10px;
+        }
+    }
+}

@@ -1,0 +1,722 @@
+@import '../../../variables.scss';
+
+.map-tile-container {
+  position: relative;
+  //background: rgba(pink, .1);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  min-width: $mapTileWidth;
+  min-height: $mapTileWidth;
+
+  .map-road-tiles {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      top: -4px; left: -4px;
+      height: calc(100% + 8px);
+      width: calc(100% + 8px);
+      background-color: rgba($secondaryColor, .2);
+      box-shadow: inset 0 0 0 5px rgba($secondaryColor, .5);
+      border-radius: 5px;
+      pointer-events: none;
+      opacity: 0;
+      transition: all .2s;
+    }
+
+    &:hover:after, &.active:after {
+      opacity: 1;
+    }
+  }
+
+  img {
+    pointer-events: none;
+    position: relative;
+    object-fit: contain;
+  }
+
+  &.top {
+    flex-direction: column;
+
+    .map-road-tiles-container {
+
+      .owner-color-bar {
+        bottom: -6px;
+        width: calc(100% - 40px);
+        height: 6px;
+        left: 20px;
+        top: auto;
+        right: auto;
+        border-radius: 10px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    &.size-2 {
+
+      img {
+        width: 2 * $mapTileWidth;
+      }
+    }
+
+    img {
+      width: $mapTileWidth;
+      margin-bottom: 10px;
+    }
+
+    .map-tile-road {
+      //border-top: 4px solid $secondaryColor;
+      //border-bottom: 4px solid $secondaryColor;
+      background-image: url('../../../../imgs/map/street/street_top.png');
+
+
+      .map-waypoint {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.left-corner {
+      align-items: flex-end;
+
+      img {
+        transform-origin: bottom right;
+        transform: scale(3);
+        margin-bottom: -$mapTileWidth;
+      }
+
+      .map-tile-road {
+        //border-top: 4px solid $secondaryColor;
+        //border-left: 4px solid $secondaryColor;
+        //border-bottom: none;
+        //border-top-left-radius: 10px;
+        background-image: url('../../../../imgs/map/street/street_top_left_corner.png');
+
+        .map-waypoint:not(.start), .map-waypoint:not(.end) {
+          background-image: url('../../../../imgs/map/waypoint/waypoint-corner.png');
+          transform: rotate(0deg);
+        }
+
+        .map-waypoint.start {
+          transform: rotate(90deg);
+        }
+      }
+
+      .building-card-wrap {
+        bottom: 0; right: 0; left: auto;
+        transform: translateX(100%) translateX(-40px) translateY(100%)  translateY(-40px);
+      }
+
+    }
+
+    &.right-corner {
+
+      img {
+        transform-origin: bottom left;
+        transform: scale(2.15);
+        margin-bottom: -$mapTileWidth;
+      }
+
+      .map-tile-road {
+        //border-top: 4px solid $secondaryColor;
+        //border-right: 4px solid $secondaryColor;
+        //border-bottom: none;
+        //border-top-right-radius: 10px;
+        background-image: url('../../../../imgs/map/street/street_top_right_corner.png');
+
+        .map-waypoint:not(.start), .map-waypoint:not(.end)  {
+          background-image: url('../../../../imgs/map/waypoint/waypoint-corner.png');
+          transform: rotate(90deg);
+        }
+
+        .map-waypoint.start {
+          transform: rotate(180deg);
+        }
+      }
+
+      .building-card-wrap {
+        bottom: 0; left: 0;
+        transform: translateX(-100%) translateX(40px) translateY(100%)  translateY(-40px);
+      }
+
+    }
+
+    .building-card-wrap {
+      bottom: 0; left: 50%;
+      transform: translateX(-50%) translateY(100%)  translateY(-40px);
+    }
+  }
+
+  &.bottom {
+    flex-direction: column-reverse;
+
+    .map-road-tiles-container {
+
+      .owner-color-bar {
+        bottom: auto;
+        width: calc(100% - 40px);
+        height: 6px;
+        left: 20px;
+        top: -6px;
+        right: auto;
+        border-radius: 10px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    img {
+      width: $mapTileWidth;
+      transform: translateY(-20px);
+      z-index: 4;
+    }
+
+    .map-tile-road {
+      //border-top: 4px solid $secondaryColor;
+      //border-bottom: 4px solid $secondaryColor;
+      background-image: url('../../../../imgs/map/street/street_bottom.png');
+
+      .map-waypoint {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .map-road-tiles {
+      flex-direction: row-reverse;
+    }
+
+    &.right-corner {
+
+      img {
+
+        transform-origin: top left;
+        transform: scale(3.85) translateY(-10px);
+        margin-top: -$mapTileWidth;
+      }
+
+      .map-tile-road {
+        //border-bottom: 4px solid $secondaryColor;
+        //border-right: 4px solid $secondaryColor;
+        //border-top: none;
+        //border-bottom-right-radius: 10px;
+        background-image: url('../../../../imgs/map/street/street_bottom_right_corner.png');
+
+        .map-waypoint:not(.start), .map-waypoint:not(.end)  {
+          background-image: url('../../../../imgs/map/waypoint/waypoint-corner.png');
+          transform: rotate(-180deg);
+        }
+
+        .map-waypoint.start {
+          transform: rotate(270deg);
+        }
+      }
+
+      .building-card-wrap {
+        top: 0; left: 0;
+        transform: translateY(-100%) translateY(40px) translateX(-100%) translateX(40px);
+      }
+
+    }
+
+    &.left-corner {
+
+      .map-tile-road {
+        position: relative;
+        //border-bottom: 4px solid $secondaryColor;
+        //border-left: 4px solid $secondaryColor;
+        //border-top: none;
+        //border: 4px solid $secondaryColor;
+        //background-color: rgba($secondaryColor, .1);
+        //border-bottom-left-radius: 10px;
+        background-image: url('../../../../imgs/map/street/street_bottom_left_corner.png');
+
+        .map-waypoint:not(.start), .map-waypoint:not(.end)  {
+          background-image: url('../../../../imgs/map/waypoint/waypoint-corner.png');
+          transform: rotate(-90deg);
+        }
+
+        .map-waypoint.start {
+          transform: rotate(0);
+        }
+
+        &:after {
+          content: 'Start';
+          position: absolute;
+          top: 0; left: 0;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+          color: $secondaryColor;
+          font-size: 18px;
+          font-weight: $extraBoldFontWeight;
+          white-space: nowrap;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    &.size-2 {
+
+      img {
+        width: 2 * $mapTileWidth;
+      }
+    }
+
+    &.size-3 {
+
+      img {
+        width: 3 * $mapTileWidth;
+      }
+    }
+
+    .building-card-wrap {
+      top: 0; left: 50%;
+      transform: translateY(-100%) translateY(40px)  translateX(-50%);
+    }
+
+  }
+
+  &.left {
+    align-items: flex-end;
+
+    .map-road-tiles {
+      flex-direction: column-reverse;
+    }
+
+    img {
+      height: $mapTileWidth;
+      -webkit-transform-origin: bottom right;
+      -moz-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+      -o-transform-origin: bottom right;
+      transform-origin: bottom right;
+      transform: scale(1.5) translateX(-15px);
+    }
+
+    .map-tile-road {
+      //border-left: 4px solid $secondaryColor;
+      //border-right: 4px solid $secondaryColor;
+      background-image: url('../../../../imgs/map/street/street_left.png');
+    }
+
+    &.size-2 {
+
+      img {
+        height: 2 * $mapTileWidth;
+      }
+    }
+
+    &.size-3 {
+
+      img {
+        height: 3 * $mapTileWidth;
+      }
+    }
+
+
+    .building-card-wrap {
+      bottom: 0; right: 0;
+      transform: translateY(40px) translateX(100%)  translateX(-40px);
+    }
+  }
+
+  &.right {
+    align-items: flex-end;
+    flex-direction: row-reverse;
+
+
+    .map-road-tiles-container {
+
+      .owner-color-bar {
+        bottom: auto;
+        height: calc(100% - 40px);
+        width: 6px;
+        top: 20px;
+        left: -6px;
+        right: auto;
+        border-radius: 10px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    .map-road-tiles {
+      flex-direction: column;
+    }
+
+    img {
+      height: $mapTileWidth;
+      -webkit-transform-origin: bottom left;
+      -moz-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      -o-transform-origin: bottom left;
+      transform-origin: bottom left;
+      transform: scale(1.5) translateX(15px);
+    }
+
+    .map-tile-road {
+      //border-left: 4px solid $secondaryColor;
+      //border-right: 4px solid $secondaryColor;
+      background-image: url('../../../../imgs/map/street/street_right.png');
+
+      .map-waypoint {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &.size-2 {
+
+      img {
+        height: 2 * $mapTileWidth;
+      }
+    }
+
+    &.size-3 {
+
+      img {
+        height: 3 * $mapTileWidth;
+      }
+    }
+
+    .building-card-wrap {
+      bottom: 0; left: 0;
+      transform: translateY(40px) translateX(-100%)  translateX(40px);
+    }
+  }
+
+  .map-tile-road {
+    position: relative;
+    width: $mapTileWidth;
+    height: $mapTileWidth;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    //box-shadow: 0 0 0 2px $secondaryColor;
+
+    .map-waypoint {
+      position: absolute;
+      top: 0; left: 0;
+      pointer-events: none;
+      width: 100%; height: 100%;
+      background-image: url('../../../../imgs/map/waypoint/waypoint-line.png');
+      background-size: $mapTileWidth $mapTileWidth;
+      background-repeat: no-repeat;
+      opacity: .9;
+
+      &.start {
+        background-image: url('../../../../imgs/map/waypoint/waypoint-start.png') !important;
+      }
+
+      &.end {
+        background-image: url('../../../../imgs/map/waypoint/waypoint-end.png') !important;
+      }
+    }
+  }
+
+  .map-road-tiles-container {
+    position: relative;
+
+    .owner-color-bar {
+      width: 6px;
+      z-index: 10;
+      height: calc(100% - 40px);
+      position: absolute;
+      top: 20px;
+      right: -6px;
+      border-radius: 10px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &.mafia {
+        background-image: $mobGradient;
+      }
+
+      &.gang {
+        background-image: $gangGradient;
+      }
+    }
+  }
+
+  .building-card-wrap {
+    position: absolute;
+    z-index: 10;
+    padding: 30px;
+    //background: pink;
+    transition: all .1s linear;
+
+    .building-card-container {
+      min-width: 280px;
+      border-radius: 10px;
+      background-color: lighten($bgColor, 5%);
+      box-shadow: 0 5px 10px rgba(black, .5);
+      border: 4px solid lighten($bgColor, 10%);
+      display: flex;
+      flex-direction: column;
+      transition: all .2s;
+      animation-name: buildingCardContainerFadeIn;
+      animation-timing-function: linear;
+      animation-duration: .15s;
+      animation-fill-mode: forwards;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 13px 18px -5px rgba(black, .8);
+      }
+
+      .card-img-preview-container {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: $bgColor;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 4px solid lighten($bgColor, 10%);
+
+        .card-img-preview {
+          width: 200px;
+          height: 150px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        .building-card-upgrade-level {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          display: flex;
+
+          i {
+            color: $white;
+            margin: 0 3px;
+          }
+        }
+
+        .business-status {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          padding: 5px;
+          font-size: 13px;
+          font-weight: $boldFontWeight;
+          box-sizing: border-box;
+          color: $bgDarkerColor;
+          background-image: $greenGradient;
+          border-radius: 5px;
+
+          &.illegal {
+            color: $white;
+            background-image: $redGradient;
+          }
+        }
+      }
+
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        box-sizing: border-box;
+        align-items: center;
+        border-bottom: 4px solid lighten($bgColor, 10%);
+
+        .building-name {
+          font-size: 18px;
+          font-weight: $boldFontWeight;
+          color: $white;
+        }
+
+        i {
+          font-size: 22px;
+          color: $secondaryColor;
+          transition: all .2s;
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+
+      .building-description {
+        word-break: break-word;
+        width: 300px;
+        padding: 10px;
+        line-height: 1.5;
+        font-size: 15px;
+        background-color: darken($bgColor, 1%);
+
+        &:not(:last-child) {
+          border-bottom: 4px solid lighten($bgColor, 10%);
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+      }
+
+      .building-price-wrap {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        box-sizing: border-box;
+
+        .building-price-type {
+          font-size: 14px;
+          font-weight: $boldFontWeight;
+          color: $secondaryColor;
+          margin-bottom: 5px;
+        }
+
+        .building-price {
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          font-weight: $boldFontWeight;
+
+          i {
+            color: $secondaryColor;
+            margin-right: 5px;
+          }
+
+          span {
+            color: $white;
+            margin-top: -6px;
+          }
+        }
+      }
+
+      .building-option-btn-container {
+        padding: 5px;
+        padding-top: 0;
+        box-sizing: border-box;
+
+        .building-buy-btn {
+          font-size: 15px;
+          font-weight: $boldFontWeight;
+          background-color: $white;
+          padding: 10px;
+          box-sizing: border-box;
+          color: $bgDarkerColor;
+          font-weight: $boldFontWeight;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          transition: all .2s;
+
+          &:hover {
+            box-shadow: 0 0 10px rgba($white, .4);
+          }
+        }
+
+        .building-upgrade-btn {
+          font-size: 15px;
+          font-weight: $boldFontWeight;
+          background-color: $white;
+          padding: 10px;
+          box-sizing: border-box;
+          color: $bgDarkerColor;
+          font-weight: $boldFontWeight;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          transition: all .2s;
+
+          &:hover {
+            box-shadow: 0 0 10px rgba($white, .4);
+          }
+        }
+
+        .building-illegal-btn {
+          font-size: 15px;
+          font-weight: $boldFontWeight;
+          background-image: $greenGradient;
+          padding: 10px;
+          box-sizing: border-box;
+          color: $bgDarkerColor;
+          font-weight: $boldFontWeight;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          transition: all .2s;
+
+          &.illegal {
+            background-image: $redGradient;
+            color: $white;
+          }
+
+          &:hover {
+            box-shadow: 0 0 10px rgba(black, .4);
+          }
+        }
+
+        .building-raid-btn {
+          font-size: 15px;
+          font-weight: $boldFontWeight;
+          background-color: $white;
+          padding: 10px;
+          box-sizing: border-box;
+          color: $bgDarkerColor;
+          font-weight: $boldFontWeight;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          text-shadow: 2px 2px 1px $white;
+          box-shadow: inset 100px 0 90px -90px red, inset -100px 0 90px -90px blue;
+          animation-name: raidBtnFlash;
+          animation-iteration-count: infinite;
+          animation-duration: 1.5s;
+          transition: all .2s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes raidBtnFlash {
+  0%, 100% {
+    box-shadow:
+            inset 100px 0 90px -90px red,
+            inset -100px 0 90px -90px blue,
+            //10px 0 10px -5px red,
+            -20px 5px 20px -10px red,
+            20px 5px 20px -10px blue;
+  }
+  50% {
+    box-shadow:
+            inset 110px 0 100px -100px blue,
+            inset -110px 0 100px -100px red,
+            //0px 0 20px -10px blue,
+            -20px 5px 20px -10px blue,
+            20px 5px 20px -10px red;
+  }
+}
+
+@keyframes buildingCardContainerFadeIn {
+  0% {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

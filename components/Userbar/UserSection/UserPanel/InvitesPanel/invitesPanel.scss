@@ -1,0 +1,26 @@
+@import '../../../../variables';
+
+.invites-panel-container {
+  display: flex;
+  flex-direction: column;
+  background-color: darken($bgColor, 2%);
+  border-radius: 5px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  
+  .no-invites {
+    width: 100%;
+    color: $secondaryColor;
+    font-weight: $boldFontWeight;
+    text-align: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}

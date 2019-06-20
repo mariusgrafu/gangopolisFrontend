@@ -1,0 +1,97 @@
+@import '../../variables.scss';
+
+.usercard-container {
+  background-color: $bgLighterColor;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: -20px;
+  transform: translateX(-100%) translateY(-50%);
+  cursor: default;
+  width: 190px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(black, .5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation-name: usercard-fadeIn;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  .usercard-avatar {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 4px solid $avatarBorder;
+    margin-bottom: 10px;
+    -webkit-background-size: cover;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .usercard-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .usercard-name {
+      color: $white;
+      font-size: 16px;
+      font-weight: $extraBoldFontWeight;
+    }
+
+    .usercard-id {
+      display: flex;
+      align-items: center;
+      font-weight: $boldFontWeight;
+      color: $secondaryColor;
+      font-size: 14px;
+
+      i {
+        font-size: 13px;
+        color: $secondaryDarkerColor;
+      }
+    }
+  }
+
+  .invite-btn {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: $extraBoldFontWeight;
+    text-align: center;
+    width: 100px;
+    background: $purpleGradient;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+      box-shadow: 0 0 10px $purpleGradientBottom;
+    }
+  }
+}
+
+@keyframes usercard-fadeIn {
+  0%{
+    opacity: 0;
+    transform: translateX(-90%) translateY(-50%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(-100%) translateY(-50%);
+  }
+}

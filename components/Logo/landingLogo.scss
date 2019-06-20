@@ -1,0 +1,136 @@
+@import '../variables.scss';
+
+.landing-logo-container {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .landing-logo-welcome-message {
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: $extraBoldFontWeight;
+        color: $secondaryColor;
+        margin-bottom: 20px;
+        letter-spacing: 6px;
+    }
+
+    .landing-logo-letters {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        perspective: 1000px;
+
+        .landing-logo-letter {
+            height: 100%;
+            fill: $white;
+            margin: 0 3px;
+        }
+    }
+
+    .landing-logo-line {
+        margin-top: 20px;
+        height: 3px;
+        width: 80%;
+        background-image: url("../../imgs/logo/logoLine.svg");
+        background-size: cover;
+        transform-origin: center;
+    }
+
+    &.with-animation {
+
+        .landing-logo-welcome-message {
+            animation-name: landingLogoWelcome;
+            animation-duration: .8s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .landing-logo-letters {
+    
+            .landing-logo-letter {
+                animation-name: landingLogoLetter;
+                animation-fill-mode: forwards;
+                transform-origin: left;
+
+                @for $i from 1 to 11{
+                    &:nth-child(#{$i}) {
+                        animation-duration: #{(10 - $i)/10 + .5}s;
+                    }
+                }
+            }
+        }
+
+        .landing-logo-line {
+            position: relative;
+            animation-name: landingLogoLineOpacity;
+            animation-duration: .8s;
+            animation-fill-mode: forwards;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0; right: 0;
+                background-color: $bgColor;
+                height: 100%; width: 50%;
+                transform-origin: right;
+                animation-name: landingLogoLine;
+                animation-duration: .8s;
+                animation-fill-mode: forwards;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0;
+                background-color: $bgColor;
+                height: 100%; width: 50%;
+                transform-origin: left;
+                animation-name: landingLogoLine;
+                animation-duration: .8s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+}
+
+@keyframes landingLogoWelcome {
+    0% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes landingLogoLetter {
+    0%, 20% {
+        transform: rotateY(50deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes landingLogoLine {
+    0% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes landingLogoLineOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

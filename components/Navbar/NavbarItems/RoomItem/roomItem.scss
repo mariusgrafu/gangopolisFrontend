@@ -1,0 +1,20 @@
+@import '../../../variables.scss';
+
+.room-item-container {
+    perspective: 500px;
+
+
+    &:hover {
+
+        .door {
+            transform: rotateY(-20deg);
+            box-shadow: 0 0 0 3px darken(#DB2222, 25%), 4px 0 0 2px darken(#DB2222, 24%);
+            background: $redGradient;
+
+            .door-panel {
+                background-color: darken($bgColor, 2%);
+                opacity: .4;
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import '../../variables.scss';
+
+.map-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 50px 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .loading-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $bgColor;
+    z-index: 100;
+  }
+
+  .map-row {
+    display: flex;
+
+    &.left, &.right {
+      flex-direction: column;
+    }
+
+    &.top, &.bottom {
+      justify-content: center;
+      margin-left: -$mapTileWidth + 21.4px;
+      width: 14 * $mapTileWidth;
+    }
+
+    &.top {
+      //margin-bottom: -4px;
+    }
+    &.bottom {
+      //margin-top: -4px;
+    }
+  }
+
+  .map-middle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .map-logo {
+      display: flex;
+      width: 14 * $mapTileWidth;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@import '../../../variables.scss';
+
+.room-player-list-item {
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: lighten($bgColor, 5%);
+    justify-content: space-between;
+    align-items: center;
+    transition: all .2s;
+    min-width: 320px;
+    width: 100%;
+    align-self: flex-start;
+    flex-shrink: 0;
+    margin: 10px 0;
+
+    &:hover, &.active {
+        background-color: lighten($bgColor, 8%);
+    }
+
+    &.is-you {
+        background-color: lighten($bgColor, 10%);
+        box-shadow: inset 0 0 0 3px rgba(lighten($bgColor, 14%), 1);
+
+        &:hover {
+            background-color: lighten($bgColor, 13%);
+        }
+    }
+
+    .rpli-player-data {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        .rpli-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid $avatarBorder;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 10px;
+
+            .rpli-avatar-leader {
+                position: relative;
+                z-index: 2;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: $avatarBorder;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 8px;
+                transform: translateY(-3px) translateX(3px);
+            }
+
+            .rpli-avatar-muteIcon {
+                position: relative;
+                z-index: 2;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: $red;
+                box-shadow: 0 2px 5px rgba(black, .8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                transform: translateY(-3px) translateX(3px);
+            }
+        }
+
+        .rpli-name {
+            font-size: 19px;
+            font-weight: $extraBoldFontWeight;
+            color: $white;
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+
+        .rpli-id {
+            display: flex;
+            font-size: 17px;
+            font-weight: $boldFontWeight;
+            color: $secondaryColor;
+            flex-shrink: 0;
+
+            i {
+                font-size: 15px;
+                color: $secondaryDarkerColor;
+                transform: translateY(2px);
+            }
+        }
+    }
+
+    .rpli-right {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: 20px;
+
+        .rpli-player-status {
+            padding: 10px;
+            box-sizing: border-box;
+            color: $secondaryColor;
+            opacity: .5;
+            font-size: 18px;
+            pointer-events: none;
+            transition: all .2s;
+
+            &.ready {
+                color: $greenGradientTop;
+                opacity: 1;
+            }
+        }
+
+        .rpli-player-options {
+            position: relative;
+            color: $secondaryColor;
+            font-size: 18px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: all .2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                padding: 10px;
+                box-sizing: border-box;
+
+                &.active {
+                    color: $white;
+                }
+            }
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}

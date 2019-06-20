@@ -1,0 +1,126 @@
+@import '../../../../res/font/IBM-Plex-Mono/ttf/IBMPlexMono-Regular.ttf';
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  display: flex;
+
+  background-color: #2B2B2B;
+  height: 100vh;
+  color: white;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.wf-login {
+  box-sizing: border-box;
+  border: 1px solid #3b3b3b;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-roomlist, .wf-userlist {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #3b3b3b;
+  padding: 16px;
+}
+
+.wf-roomlist-title, .wf-userlist-title {
+  font-weight: bold;
+  padding: 8px 0;
+}
+
+.wf-roomlist-items, .wf-userlist-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-room-item-users {
+  padding: 0 16px;
+}
+
+.wf-room-item, .wf-user-item {
+  display: flex;
+  padding: 4px 0;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.wf-room-item-id-users {
+  flex: 1;
+}
+
+.wf-room-item-controls {
+  flex: 1;
+}
+
+.wf-rooms-users {
+  display: flex;
+}
+
+.wf-main {
+  display: flex;
+  width: 100%;
+}
+
+.wf-control, .wf-display {
+  box-sizing: border-box;
+}
+
+.wf-control {
+  flex: 1;
+}
+
+.wf-display {
+  flex: 1;
+}
+
+.wf-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid #3b3b3b;
+  transition: .15s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.wf-login-pair {
+  input {
+    width: 100%;
+    font-size: 24px;
+  }
+}
+
+.wf-login-buttons {
+  display: flex;
+
+  .wf-button {
+    flex: 1;
+  }
+}
+
+.selected {
+  color: #659525;
+}

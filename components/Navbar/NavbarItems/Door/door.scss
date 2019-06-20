@@ -1,0 +1,47 @@
+@import '../../../variables.scss';
+
+.door {
+    position: relative;
+    width: 30px;
+    height: 50px;
+    box-shadow: 0 0 0 3px $white;
+    border-radius: 2px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $bgColor;
+    transform-origin: right;
+    transition: box-shadow .2s, transform .2s;
+
+    .door-panel {
+        background-color: $navbarItemLowOpacityWhite;
+        flex: 1;
+        transition: all .2s;
+    }
+
+    .door-top-panels {
+        display: flex;
+        width: 100%;
+        height: 45%;
+
+        .door-panel:first-child{
+            margin-right: 3px;
+        }
+    }
+
+    .door-knob {
+        height: 4px;
+        width: 4px;
+        border-radius: 100%;
+        background-color: $white;
+        transition: all .2s;
+    }
+
+    .door-bottom-panel {
+        display: flex;
+        height: 25%;
+        width: 100%;
+    }
+}

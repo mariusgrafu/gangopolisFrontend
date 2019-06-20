@@ -1,0 +1,57 @@
+@import '../../variables.scss';
+
+.hud-player-info-container {
+  position: relative;
+  display: flex;
+  pointer-events: all;
+  background-color: rgba($bgColor, .9);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: inset 0 0 2px 1px rgba($secondaryColor, .1), 0 5px 16px rgba(black, .6);
+
+  .hud-player-info {
+    display: flex;
+    align-items: center;
+
+    .hud-player-stats {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .player-username {
+        font-size: 21px;
+        font-weight: $boldFontWeight;
+        color: $white;
+        margin-bottom: 5px;
+      }
+
+      .player-money {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+
+        i {
+          color: $greenGradientTop;
+          margin-right: 5px;
+        }
+
+        span {
+          color: $white;
+          margin-top: -5px;
+          font-weight: $semiBoldFontWeight;
+        }
+      }
+    }
+
+    .hud-player-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      border: 4px solid $avatarBorder;
+      background-size: cover;
+      background-position: center;
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../variables.scss';
+
+.mobile-section-container {
+  display: flex;
+  flex-direction: column;
+
+  .mobile-section-connect-wrap {
+
+    .msc-desc {
+      font-size: 23px;
+      font-weight: $boldFontWeight;
+      color: lighten($secondaryColor, 10%);
+    }
+
+    .msc-code {
+      font-size: 30px;
+      font-weight: $extraBoldFontWeight;
+      user-select: text;
+    }
+  }
+
+  .mobile-section-app {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+
+    .msa-desc {
+      font-size: 23px;
+      color: lighten($secondaryColor, 10%);
+      font-weight: $boldFontWeight;
+    }
+
+    img {
+      width: 300px;
+      margin: 0;
+    }
+
+    .msa-legal-attribution {
+      font-size: 13px;
+      font-weight: $boldFontWeight;
+      color: $secondaryDarkerColor;
+    }
+  }
+
+}

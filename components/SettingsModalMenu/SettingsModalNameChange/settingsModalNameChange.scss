@@ -1,0 +1,25 @@
+@import '../../variables.scss';
+
+.settings-modal-name-change-container {
+    width: 400px;
+
+    .name-change-description {
+        font-size: 14px;
+        color: $secondaryDarkerColor;
+        margin-bottom: 10px;
+        font-weight: $boldFontWeight;
+
+        b {
+            color: $secondaryColor;
+            margin-right: 5px;
+        }
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .smm-btn {
+        margin-top: 10px;
+    }
+}

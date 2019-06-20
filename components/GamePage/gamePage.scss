@@ -1,0 +1,40 @@
+@import '../variables.scss';
+
+.game-page-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .game-hud-overlay-container {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    pointer-events: none;
+    padding: 70px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .hud-top-level {
+      position: relative;
+      width: 100%;
+      display: flex;
+    }
+
+    .hud-bottom-level {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+  }
+}

@@ -1,0 +1,46 @@
+@import '../variables.scss';
+
+.default-landing-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 1400px;
+    align-self: flex-start;
+    padding: 20px 0 100px;
+    box-sizing: border-box;
+}
+
+.main-page {
+    display: flex;
+    width: 1400px;
+    min-height: 100%;
+    transition: all .2s;
+
+    &.expanded {
+        width: 1600px;
+    }
+
+    &.full-width {
+        width: 100vw;
+        align-self: flex-start;
+    }
+
+    &.is-loading {
+        pointer-events: none;
+        opacity: .5;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1600px){
+
+    .main-page{
+        width: auto;
+        flex: 1;
+        max-width: 100%;
+    }
+
+}

@@ -1,0 +1,200 @@
+@import '../../../variables.scss';
+
+.room-chat-message {
+    position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+
+    &.user-left {
+        opacity: .5;
+        pointer-events: none;
+    }
+
+    &.my-message {
+        flex-direction: row-reverse;
+
+        &.police-message {
+
+            .rcm-message-content {
+
+                .rcm-content {
+
+                    .rcm-content-message {
+                        background-image: getChatGradient($policeGradientTop, $policeGradientBottom) !important;
+                    }
+                }
+            }
+        }
+
+        &.mob-message {
+
+            .rcm-message-content {
+
+                .rcm-content {
+
+                    .rcm-content-message {
+                        background-image: getChatGradient($mobGradientTop, $mobGradientBottom) !important;
+                    }
+                }
+            }
+        }
+
+        &.gang-message {
+
+            .rcm-message-content {
+
+                .rcm-content {
+
+                    .rcm-content-message {
+                        background-image: getChatGradient($gangGradientTop, $gangGradientBottom) !important;
+                    }
+                }
+            }
+        }
+
+        .rcm-author-avatar {
+            display: none;
+            border: none;
+            margin-right: 0;
+            margin-left: 10px;
+            box-shadow: 0 2px 8px rgba(black, .8);
+        }
+
+        .rcm-message-content {
+
+            .rcm-author-info {
+                align-self: flex-end;
+
+                //.rcm-author-id {
+                //    color: $white;
+                //
+                //    i {
+                //        color: $white;
+                //        opacity: .7;
+                //    }
+                //}
+            }
+
+            .rcm-content {
+                color: $white;
+
+                .rcm-content-message {
+                    background: $chatGradient;
+                    background-size: 100%;
+                    background-attachment: fixed;
+                    align-self: flex-end;
+                }
+            }
+        }
+
+    }
+
+    .rcm-author-avatar {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        margin-right: 10px;
+        flex-shrink: 0;
+        background-size: cover;
+        background-position: center;
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: -3px; left: -3px;
+            width: calc(100% + 6px);
+            height: calc(100% + 6px);
+            border-radius: 100%;
+            background-color: $avatarBorder;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+    }
+
+    &.police-message {
+
+        .rcm-author-avatar {
+
+            &:after {
+                background-image: $policeGradient;
+            }
+        }
+    }
+
+    &.mob-message {
+
+        .rcm-author-avatar {
+
+            &:after {
+                background-image: $mobGradient;
+            }
+        }
+    }
+
+    &.gang-message {
+
+        .rcm-author-avatar {
+
+            &:after {
+                background-image: $gangGradient;
+            }
+        }
+    }
+
+    .rcm-message-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .rcm-author-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .rcm-author-name {
+                font-size: 15px;
+                font-weight: $boldFontWeight;
+                color: $white;
+            }
+
+            .rcm-author-id {
+                font-size: 13px;
+                color: $secondaryColor;
+                margin-left: 5px;
+
+                i {
+                    font-size: 11px;
+                    color: $secondaryDarkerColor;
+                }
+            }
+        }
+
+        .rcm-content {
+            font-size: 14px;
+            font-weight: $semiBoldFontWeight;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .rcm-content-message {
+                max-width: 95%;
+                align-self: flex-start;
+                background-color: lighten($bgColor, 2%);
+                border-radius: 15px;
+                -ms-word-break: break-all;
+                word-break: break-all;
+                margin-bottom: 5px;
+                padding: 10px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

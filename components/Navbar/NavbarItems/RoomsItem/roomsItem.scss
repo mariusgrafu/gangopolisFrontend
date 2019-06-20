@@ -1,0 +1,57 @@
+@import '../../../variables.scss';
+
+.rooms-item-container {
+    perspective: 500px;
+
+    .door {
+
+        &:first-child {
+            position: relative;
+            z-index: 3;
+        }
+
+        &:nth-child(2) {
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            transform-origin: bottom;
+            transform: rotate(10deg) translateX(10px) translateY(5px) scale(.9);
+        }
+
+        &:nth-child(3) {
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            transform-origin: bottom;
+            transform: rotate(-10deg) translateX(-10px) translateY(5px) scale(.9);
+        }
+    }
+
+    &:hover {
+        .door {
+    
+            .door-panel {
+                background-color: darken($bgColor, 2%);
+                opacity: .4;
+            }
+
+            &:first-child {
+                background: $redGradient;
+                box-shadow: 0 0 0 3px darken(#DB2222, 25%);
+                transform: translateY(5px);
+            }
+    
+            &:nth-child(2) {
+                background: $greenGradient;
+                box-shadow: 0 0 0 3px darken(#47BE2A, 25%);
+                transform: rotate(20deg) translateX(15px) translateY(5px) scale(.9);
+            }
+    
+            &:nth-child(3) {
+                background: $purpleGradient;
+                box-shadow: 0 0 0 3px darken(#7429E4, 25%);
+                transform: rotate(-20deg) translateX(-15px) translateY(5px) scale(.9);
+            }
+        }
+    }
+}

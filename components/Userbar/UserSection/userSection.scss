@@ -1,0 +1,49 @@
+@import '../../variables';
+
+.user-invites-counter {
+  background-color: $white;
+  color: $bgDarkerColor;
+  font-weight: $boldFontWeight;
+  padding: 5px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: inline-flex;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  box-shadow: 0 3px 5px rgba(black, .7);
+}
+
+
+.user-avatar-roomUsers {
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+  display: flex;
+  align-items: center;
+  background-color: lighten($bgColor, 15%);
+  box-shadow: 0 0 0 3px lighten($bgColor, 15%), 0 2px 10px rgba(black, .5);
+  border-radius: 10px;
+
+  i {
+    padding: 2px 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: lighten($bgColor, 35%);
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  span {
+    padding: 2px 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: lighten($bgColor, 15%);
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: $boldFontWeight;
+  }
+}

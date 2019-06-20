@@ -1,0 +1,143 @@
+@import '../../variables.scss';
+
+.room-teams-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+
+    &:hover {
+        .room-team {
+            opacity: .5;
+        }
+    }
+
+    .room-teams-row {
+        display: flex;
+        width: 100%;
+        margin: 5px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        .room-team {
+            position: relative;
+            flex: 1;
+            border-radius: 5px;
+            height: 150px;
+            transition: all .2s;
+            cursor: pointer;
+            padding: 20px 50px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &:first-child:not(:only-child) {
+                margin-right: 10px;
+            }
+
+            .room-team-member {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .room-team-avatar {
+                    width: 60px;
+                    height: 60px;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    flex-shrink: 0;
+                    border-radius: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    box-shadow: 0 5px 10px rgba(black, .5);
+                    margin-bottom: 5px;
+                }
+
+                .room-team-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .room-team-username {
+                        font-size: 16px;
+                        font-weight: $boldFontWeight;
+                    }
+
+                    .room-team-userid {
+                        font-size: 14px;
+                        font-weight: $semiBoldFontWeight;
+                    }
+                }
+            }
+
+            .room-team-prompt {
+                position: absolute;
+                z-index: 3;
+                padding: 10px 20px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                background-color: $white;
+                color: $bgDarkerColor;
+                border-radius: 5px;
+                white-space: nowrap;
+                font-weight: $boldFontWeight;
+                box-shadow: 0 5px 10px rgba(black, .5);
+                transition: all .2s;
+                pointer-events: none;
+                opacity: 0;
+                top: 0;
+                left: 10px;
+            }
+
+            &:hover {
+                .room-team-prompt {
+                    top: -10px;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.police {
+
+            .room-team {
+                background: $policeGradient;
+
+                &:hover {
+                    opacity: 1;
+                    box-shadow: 0 0 30px rgba($policeGradientBottom, .7);
+                }
+            }
+        }
+
+        &.mob {
+
+            .room-team {
+                background: $mobGradient;
+
+                &:hover {
+                    opacity: 1;
+                    box-shadow: 0 0 30px rgba($mobGradientBottom, .7);
+                }
+            }
+        }
+
+        &.gang {
+
+            .room-team {
+                background: $gangGradient;
+
+                &:hover {
+                    opacity: 1;
+                    box-shadow: 0 0 30px rgba($gangGradientBottom, .7);
+                }
+            }
+        }
+    }
+}

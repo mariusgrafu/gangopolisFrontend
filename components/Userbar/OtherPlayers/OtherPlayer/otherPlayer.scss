@@ -1,0 +1,20 @@
+@import '../../../variables.scss';
+
+.otherplayer-avatar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 3px solid $avatarBorder;
+  margin: 10px 0;
+
+  &.missing-player {
+    border: 2px solid $avatarBorder;
+    opacity: .3;
+    pointer-events: none;
+    background-color: rgba($avatarBorder, .2);
+  }
+}

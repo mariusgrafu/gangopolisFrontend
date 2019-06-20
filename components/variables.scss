@@ -1,0 +1,74 @@
+ //website's main colors
+$bgColor: #181A21;
+$white: #FBFBFC;
+$secondaryColor: #6D799F;
+$secondaryDarkerColor: #4E556B;
+$bgDarkerColor: #111317;
+$bgLighterColor: #1F222B;
+
+$navbarItemLowOpacityWhite: rgba($white, .15);
+
+$avatarBorder : rgba(#4E556B, 55%);
+
+$red : #EC3B3B;
+
+$redGradientTop: #fb652c;
+$redGradientBottom: #db2222;
+
+$greenGradientTop: #c4ec3b;
+$greenGradientBottom: #47be2a;
+
+$btnGradientTop: #383d50;
+$btnGradientBottom: #282d3d;
+
+$purpleGradientTop: #d23de9;
+$purpleGradientBottom: #7429e4;
+
+$redGradient: -webkit-linear-gradient(top, $redGradientTop 0%,$redGradientBottom 100%);
+$greenGradient: -webkit-linear-gradient(top, $greenGradientTop 0%,$greenGradientBottom 100%);
+$btnGradient: -webkit-linear-gradient(top, $btnGradientTop 0%,$btnGradientBottom 100%);
+$purpleGradient: -webkit-linear-gradient(top, $purpleGradientTop 0%,$purpleGradientBottom 100%);
+
+$policeGradientTop: #1A99EE;
+$policeGradientBottom: #3241CB;
+
+$mobGradientTop: #AB42DE;
+$mobGradientBottom: #3F34A4;
+
+$gangGradientTop: #ef824d;
+$gangGradientBottom: #f34040;
+
+$policeGradient: -webkit-linear-gradient(top, $policeGradientTop 0%,$policeGradientBottom 100%);
+$mobGradient: -webkit-linear-gradient(top, $mobGradientTop 0%,$mobGradientBottom 100%);
+$gangGradient: -webkit-linear-gradient(top, $gangGradientTop 0%,$gangGradientBottom 100%);
+
+@function getChatGradient($topColor, $bottomColor) {
+  @return -webkit-linear-gradient( top,  $topColor 40%, $bottomColor 55% );
+}
+
+$chatGradientTop : #2b303e;
+$chatGradientBottom: #1f222c;
+$chatGradient: getChatGradient($chatGradientTop, $chatGradientBottom);
+
+// mainFont - the font that will appear on the website
+$mainFont: 'Muli', sans-serif;
+
+// font-weights based on Muli
+$lightFontWeight: 200;
+$regularFontWeight: 400;
+$semiBoldFontWeight: 600;
+$boldFontWeight: 700;
+$extraBoldFontWeight: 800;
+$blackFontWeight: 900;
+
+
+
+ $mapTileWidth : 120px;
+
+ $diceBtnGradientTop : #00DCFF;
+ $diceBtnGradientBottom : #22FCC8;
+
+ $diceBtnGradient: -webkit-linear-gradient(top, $diceBtnGradientTop 0%,$diceBtnGradientBottom 100%);
+ $diceBtnOffGradient: -webkit-linear-gradient(top, darken($diceBtnGradientTop, 20%) 0%, darken($diceBtnGradientBottom, 20%) 100%);
+
+ $waypointColor : #deff79;

@@ -1,0 +1,41 @@
+@import '../variables.scss';
+
+.confirmation-modal-overlay {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  background-color: rgba($bgDarkerColor, .9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .confirmation-modal-container {
+    width: 500px;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: $bgColor;
+    box-shadow: 0 5px 10px rgba(black, .5);
+
+    .confirmation-modal-message {
+      font-size: 16px;
+      font-weight: $semiBoldFontWeight;
+      color: $white;
+    }
+
+    .confirmation-modal-btns {
+      margin-top: 20px;
+      display: flex;
+
+      .btn{
+        &:not(:last-of-type) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

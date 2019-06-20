@@ -1,0 +1,33 @@
+@import '../../../variables.scss';
+
+.game-alert {
+  position: relative;
+  background-color: darken($bgColor, 2%);
+  border: 2px solid lighten($bgColor, 4%);
+  margin: 5px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  span {
+    font-size: 15px;
+    font-weight: $regularFontWeight;
+    color: lighten($bgColor, 50%)
+  }
+
+  .game-alert-close {
+    position: absolute;
+    color: lighten($bgColor, 20%);
+    font-size: 14px;
+    top: 5px;
+    left: -5px;
+    transform: translateX(-100%);
+    cursor: pointer;
+    padding: 5px;
+    box-sizing: border-box;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.room-player-list {
+    display: flex;
+    flex-direction: column;
+
+    .room-player-list-no-players {
+        display: flex;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: darken($bgColor, 1%);
+        border: 2px solid lighten($bgColor, 5%);
+        border-radius: 10px;
+        color: $secondaryColor;
+        font-size: 18px;
+        font-weight: $boldFontWeight;
+    }
+}
